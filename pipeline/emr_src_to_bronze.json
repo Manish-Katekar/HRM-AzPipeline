@@ -52,7 +52,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup_Emr_Config').output.value\n",
+						"value": "@activity('Lookup_Emr_Config').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
