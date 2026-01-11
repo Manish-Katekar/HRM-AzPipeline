@@ -60,6 +60,8 @@
 						{
 							"name": "FileExists",
 							"type": "GetMetadata",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
@@ -101,6 +103,8 @@
 						{
 							"name": "If Condition1",
 							"type": "IfCondition",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Skipped",
 							"dependsOn": [
 								{
 									"activity": "FileExists",
@@ -200,6 +204,8 @@
 						{
 							"name": "If Condition2",
 							"type": "IfCondition",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "If Condition1",
