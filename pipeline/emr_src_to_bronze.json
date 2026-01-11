@@ -51,6 +51,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup_Emr_Config').output.value",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "FileExists",
@@ -80,7 +84,9 @@
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"exists"
+								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"enablePartitionDiscovery": false
@@ -103,6 +109,10 @@
 							],
 							"userProperties": [],
 							"typeProperties": {
+								"expression": {
+									"value": "@equals(activity('FileExists').output,'True')",
+									"type": "Expression"
+								},
 								"ifTrueActivities": [
 									{
 										"name": "Archive file",
