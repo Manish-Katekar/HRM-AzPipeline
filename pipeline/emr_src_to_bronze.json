@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup_Emr_Config",
+				"name": "Lookup_Emr_Configuration",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -43,7 +43,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Lookup_Emr_Config",
+						"activity": "Lookup_Emr_Configuration",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -52,7 +52,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup_Emr_Config').output.value",
+						"value": "@activity('Lookup_Emr_Configuration').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
