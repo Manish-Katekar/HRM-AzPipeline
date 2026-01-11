@@ -100,8 +100,6 @@
 						{
 							"name": "If Condition1",
 							"type": "IfCondition",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Skipped",
 							"dependsOn": [
 								{
 									"activity": "FileExists",
@@ -201,8 +199,6 @@
 						{
 							"name": "If Condition2",
 							"type": "IfCondition",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "If Condition1",
