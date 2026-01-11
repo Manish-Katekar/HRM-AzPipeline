@@ -60,8 +60,6 @@
 						{
 							"name": "FileExists",
 							"type": "GetMetadata",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
@@ -82,7 +80,7 @@
 											"type": "Expression"
 										},
 										"file_path": {
-											"value": "@split(item().table_name,'.')[1]",
+											"value": "@split(item().tablename,'.')[1]",
 											"type": "Expression"
 										}
 									}
@@ -103,8 +101,6 @@
 						{
 							"name": "If Condition1",
 							"type": "IfCondition",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Skipped",
 							"dependsOn": [
 								{
 									"activity": "FileExists",
@@ -174,7 +170,7 @@
 														"type": "Expression"
 													},
 													"filename": {
-														"value": "@split(item().table_name,'.')[1]",
+														"value": "@split(item().tablename,'.')[1]",
 														"type": "Expression"
 													}
 												}
@@ -191,7 +187,7 @@
 														"type": "Expression"
 													},
 													"filename": {
-														"value": "@split(item().table_name,'.')[1]",
+														"value": "@split(item().tablename,'.')[1]",
 														"type": "Expression"
 													}
 												}
@@ -204,8 +200,6 @@
 						{
 							"name": "If Condition2",
 							"type": "IfCondition",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "If Condition1",
@@ -392,7 +386,7 @@
 											"source": {
 												"type": "AzureSqlSource",
 												"sqlReaderQuery": {
-													"value": "@concat('select * ',item().datasource,'as datasource from ',item().table_name)",
+													"value": "@concat('select * ',item().datasource,'as datasource from ',item().tablename)",
 													"type": "Expression"
 												},
 												"queryTimeout": "02:00:00",
@@ -427,11 +421,11 @@
 														"type": "Expression"
 													},
 													"schema_name": {
-														"value": "@split(item().table_name,'.')[0]",
+														"value": "@split(item().tablename,'.')[0]",
 														"type": "Expression"
 													},
 													"table_name": {
-														"value": "@split(item().table_name,'.')[1]",
+														"value": "@split(item().tablename,'.')[1]",
 														"type": "Expression"
 													}
 												}
@@ -493,20 +487,6 @@
 										}
 									}
 								]
-							}
-						},
-						{
-							"name": "Set variable1",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"policy": {
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "tablename",
-								"value": "@item().tablename"
 							}
 						}
 					]
