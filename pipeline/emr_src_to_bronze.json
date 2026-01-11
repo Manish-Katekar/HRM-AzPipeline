@@ -248,7 +248,24 @@
 											"secureOutput": false,
 											"secureInput": false
 										},
-										"userProperties": []
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "AzureDatabricksDeltaLakeSource",
+												"query": {
+													"value": "@concat('insert into `dev-catalog`.`audit`.`load_logs`(data_source,tablename,numberofrowscopied,watermarkcolumnname,loaddate) values (',item().datasource, ', ',item().tablename,', ',activity('Incremental_Load_Cp').output.rowscopied,',',item().watermark,', ',utcNow(),')')\n",
+													"type": "Expression"
+												}
+											},
+											"dataset": {
+												"referenceName": "AzureDatabricksDeltaLakeDataset1",
+												"type": "DatasetReference",
+												"parameters": {
+													"schema_name": "'aa'",
+													"table_name": "'aa'"
+												}
+											}
+										}
 									},
 									{
 										"name": "Incremental_Load_Cp",
@@ -308,7 +325,7 @@
 														"type": "Expression"
 													},
 													"schema_name": {
-														"value": "@split(item().tablename,'.')[0]",
+														"value": "@item().targetpath",
 														"type": "Expression"
 													},
 													"table_name": {
