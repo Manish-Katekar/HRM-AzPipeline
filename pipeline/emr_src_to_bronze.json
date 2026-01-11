@@ -494,11 +494,30 @@
 									}
 								]
 							}
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "tablename",
+								"value": "@item().tablename"
+							}
 						}
 					]
 				}
 			}
 		],
+		"variables": {
+			"tablename": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
