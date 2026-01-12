@@ -204,7 +204,7 @@
 								{
 									"activity": "If Condition1",
 									"dependencyConditions": [
-										"Skipped"
+										"Succeeded"
 									]
 								}
 							],
