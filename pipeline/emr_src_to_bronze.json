@@ -211,7 +211,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@equals(item().load_type,'Full' )",
+									"value": "@equals(item().loadtype,'Full' )",
 									"type": "Expression"
 								},
 								"ifFalseActivities": [
