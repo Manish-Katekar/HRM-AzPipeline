@@ -112,7 +112,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@equals(activity('FileExists').output,'False')",
+									"value": "@equals(activity('FileExists').output,'True')",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
