@@ -164,7 +164,7 @@
 												"referenceName": "Parquet_ds",
 												"type": "DatasetReference",
 												"parameters": {
-													"container": "medallion-dev",
+													"container": "medallion-dev/bronze",
 													"filepath": {
 														"value": "@item().targetpath",
 														"type": "Expression"
