@@ -183,7 +183,7 @@
 												"parameters": {
 													"container": "medallion-dev/bronze",
 													"filepath": {
-														"value": "@concat(item().targetpath,'/archive/',formatDateTime(utcNow(),'yyyy'),'/',formatDateTime(utcNow(),'%m'),'/',formatDateTime(utcNow(),'%d'))",
+														"value": "@concat(item().targetpath,'/archive/',formatDateTime(utcNow(),'yyyy'),'/',formatDateTime(utcNow(),'mm'),'/',formatDateTime(utcNow(),'dd'))",
 														"type": "Expression"
 													},
 													"filename": {
