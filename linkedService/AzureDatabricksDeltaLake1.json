@@ -1,13 +1,20 @@
 {
 	"name": "AzureDatabricksDeltaLake1",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureDatabricksDeltaLake",
 		"typeProperties": {
 			"domain": "https://adb-7405619597017640.0.azuredatabricks.net",
 			"clusterId": "0111-064836-jjlqslgr",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEUwNjlFRDQwLUU0MEEtNDYyMS05MkUxLUVGM0IyRjhBNDhEQl81Njg2NGE0OC1mZDliLTQ3YzUtOGM3NC00MmQxNTQxNTlhMTQiDQp9"
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "dbcks-access-token"
+			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
