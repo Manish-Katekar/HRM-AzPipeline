@@ -76,11 +76,11 @@
 									"parameters": {
 										"container": "medallion-dev/bronze",
 										"file_name": {
-											"value": "@item().targetpath",
+											"value": "@split(item().tablename,'.')[1]",
 											"type": "Expression"
 										},
 										"file_path": {
-											"value": "@split(item().tablename,'.')[1]",
+											"value": "@item().targetpath",
 											"type": "Expression"
 										}
 									}
