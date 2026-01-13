@@ -31,8 +31,8 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": "configs",
-							"file_name": "emr",
-							"file_path": "load_config.csv"
+							"file_name": "load_config.csv",
+							"file_path": "emr"
 						}
 					},
 					"firstRowOnly": false
