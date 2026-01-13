@@ -21,7 +21,7 @@
 					"referenceName": "AzureKeyVault1",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "sql-db-pwd"
+				"secretName": "sql-hrm-db-pwd"
 			}
 		}
 	},
