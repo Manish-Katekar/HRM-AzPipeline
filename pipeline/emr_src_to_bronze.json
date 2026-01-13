@@ -472,7 +472,7 @@
 											"source": {
 												"type": "AzureDatabricksDeltaLakeSource",
 												"query": {
-													"value": "@concat('insert into audit.load_logs(data_source,tablename,numberofrowscopied,watermarkcolumnname,loaddate) values (''',item().datasource,''', ''',item().tablename,''',''',activity('Full_Load_Cp').output.rowscopied,''',''',item().watermark,''',''',utcNow(),''')')\n",
+													"value": "@concat('insert into `dev-catalog`.`audit`.`load_logs`(data_source,tablename,numberofrowscopied,watermarkcolumnname,loaddate) values (''',item().datasource,''', ''',item().tablename,''',''',activity('Full_Load_Cp').output.rowscopied,''',''',item().watermark,''',''',utcNow(),''')')\n",
 													"type": "Expression"
 												}
 											},
