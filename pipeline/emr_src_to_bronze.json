@@ -357,7 +357,7 @@
 												"parameters": {
 													"container": "medallion-dev/bronze",
 													"filepath": {
-														"value": "@item().datasource",
+														"value": "@item().targetpath",
 														"type": "Expression"
 													},
 													"filename": {
