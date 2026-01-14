@@ -38,7 +38,7 @@
 				}
 			},
 			{
-				"name": "silver",
+				"name": "bronze-to-silver",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
@@ -53,15 +53,19 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "bronze-to-silver",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			},
 			{
-				"name": "gold",
+				"name": "silver-to-gold",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "silver",
+						"activity": "bronze-to-silver",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -72,6 +76,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "silver-to-gold",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			}
