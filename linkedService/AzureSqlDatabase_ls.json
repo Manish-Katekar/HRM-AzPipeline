@@ -1,0 +1,29 @@
+{
+	"name": "AzureSqlDatabase_ls",
+	"properties": {
+		"parameters": {
+			"db_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "hrm-emr-db.database.windows.net",
+			"database": "@{linkedService().db_name}",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "hrmadmin",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sql-hrm-db-pwd"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
+}

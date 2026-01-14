@@ -1,0 +1,20 @@
+{
+	"name": "AzureDatabricksDeltaLake1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLake",
+		"typeProperties": {
+			"domain": "https://adb-7405619597017640.0.azuredatabricks.net",
+			"clusterId": "0111-064836-jjlqslgr",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "dbcks-access-token"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
+}
