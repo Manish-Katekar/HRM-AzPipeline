@@ -582,9 +582,9 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "errorCode",
+					"variableName": "triggerTime",
 					"value": {
-						"value": "@activity('ForEach1').error.code",
+						"value": "@pipeline().TriggerTime",
 						"type": "Expression"
 					}
 				}
@@ -597,7 +597,7 @@
 			"runId": {
 				"type": "String"
 			},
-			"errorCode": {
+			"triggerTime": {
 				"type": "String"
 			},
 			"errorMessage": {
