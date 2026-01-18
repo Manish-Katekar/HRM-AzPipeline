@@ -3,60 +3,64 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "check",
-				"type": "IfCondition",
+				"name": "Copy data1",
+				"type": "Copy",
 				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
 				"userProperties": [],
 				"typeProperties": {
-					"expression": {
-						"value": "@equals(1,1)",
-						"type": "Expression"
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
-					"ifTrueActivities": [
-						{
-							"name": "Wait1",
-							"type": "Wait",
-							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"waitTimeInSeconds": 1
-							}
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
 						}
-					]
-				}
-			},
-			{
-				"name": "Fail1",
-				"type": "Fail",
-				"dependsOn": [
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
 					{
-						"activity": "check",
-						"dependencyConditions": [
-							"Succeeded"
-						]
+						"referenceName": "AzureSqlTable_ds",
+						"type": "DatasetReference",
+						"parameters": {
+							"db_name": "hospital-a",
+							"schema_name": "dbo",
+							"table_name": "transactions"
+						}
 					}
 				],
-				"userProperties": [],
-				"typeProperties": {
-					"message": "abc",
-					"errorCode": "101"
-				}
-			},
-			{
-				"name": "Wait2",
-				"type": "Wait",
-				"dependsOn": [
+				"outputs": [
 					{
-						"activity": "Fail1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
+						"referenceName": "DelimitedText_ds",
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "sample"
+						}
 					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
+				]
 			}
 		],
 		"annotations": []
