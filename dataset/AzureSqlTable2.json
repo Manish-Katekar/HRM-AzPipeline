@@ -1,0 +1,107 @@
+{
+	"name": "AzureSqlTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase_ls",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"db_name": "hospital-a"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "TransactionID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EncounterID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PatientID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProviderID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DeptID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "VisitDate",
+				"type": "date"
+			},
+			{
+				"name": "ServiceDate",
+				"type": "date"
+			},
+			{
+				"name": "PaidDate",
+				"type": "date"
+			},
+			{
+				"name": "VisitType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Amount",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "AmountType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PaidAmount",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ClaimID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PayorID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProcedureCode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ICDCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LineOfBusiness",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MedicaidID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MedicareID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "InsertDate",
+				"type": "date"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "transactions"
+		}
+	}
+}

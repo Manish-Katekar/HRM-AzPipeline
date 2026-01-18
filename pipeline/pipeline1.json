@@ -43,13 +43,8 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "AzureSqlTable_ds",
-						"type": "DatasetReference",
-						"parameters": {
-							"db_name": "hospital-a",
-							"schema_name": "dbo",
-							"table_name": "transactions"
-						}
+						"referenceName": "AzureSqlTable2",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
