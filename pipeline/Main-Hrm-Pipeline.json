@@ -21,6 +21,8 @@
 			{
 				"name": "csv-api-to-bronze",
 				"type": "ExecutePipeline",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "emrdata-to-bronze",
@@ -44,6 +46,8 @@
 			{
 				"name": "bronze-to-silver",
 				"type": "ExecutePipeline",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "csv-api-to-bronze",
@@ -67,6 +71,8 @@
 			{
 				"name": "silver-to-gold",
 				"type": "ExecutePipeline",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "bronze-to-silver",
