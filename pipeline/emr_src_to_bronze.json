@@ -510,7 +510,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "",
+					"variableName": "pipelineName",
 					"value": {
 						"value": "@pipeline().Pipeline",
 						"type": "Expression"
