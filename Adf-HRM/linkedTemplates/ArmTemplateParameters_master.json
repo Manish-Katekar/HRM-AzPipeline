@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Adf-HRM"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://datalakehrm.dfs.core.windows.net"
+		},
+		"AzureDatabricks_ls_properties_typeProperties_existingClusterId": {
+			"value": "0111-064836-jjlqslgr"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://keyvault-hrm.vault.azure.net/"
+		},
+		"AzureSqlDatabase_ls_properties_typeProperties_server": {
+			"value": "hrm-emr-db.database.windows.net"
+		},
+		"AzureSqlDatabase_ls_properties_typeProperties_database": {
+			"value": "@{linkedService().db_name}"
+		},
+		"AzureSqlDatabase_ls_properties_typeProperties_userName": {
+			"value": "hrmadmin"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
