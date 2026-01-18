@@ -492,10 +492,121 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Set variable_IterationFailure",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "",
+					"value": {
+						"value": "@pipeline().Pipeline",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "runId",
+					"value": {
+						"value": "@pipeline()?.TriggeredByPipelineRunId",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "errorMessage",
+					"value": {
+						"value": "@activity('ForEach1').error.message",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable3",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "errorCode",
+					"value": {
+						"value": "@activity('ForEach1').error.code",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"variables": {
 			"tablename": {
+				"type": "String"
+			},
+			"pipelineName": {
+				"type": "String"
+			},
+			"activityName": {
+				"type": "String"
+			},
+			"runId": {
+				"type": "String"
+			},
+			"errorCode": {
+				"type": "String"
+			},
+			"errorMessage": {
 				"type": "String"
 			}
 		},
