@@ -1,0 +1,65 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "FailLog",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "check",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureDatabricksDeltaLakeSource",
+						"query": "INSERT INTO `dev-catalog`.`audit`.`activity_run_status_logs` (\r\npipeline_name ,\r\nactivity_name ,\r\nrun_id ,\r\nstatus ,\r\nerror_code ,\r\nerror_message ,\r\ntrigger_time,\r\nload_date \r\n)\r\nVALUES(\r\n@pipeline().PipelineName,\r\n'check',\r\n@pipeline().RunId,\r\n'success',\r\n@activity('check').Error.code,\r\n@activity('check').Error.message,\r\n@pipeline().TriggerTime,\r\nutcNow()\r\n\r\n)"
+					},
+					"dataset": {
+						"referenceName": "AzureDatabricksDeltaLakeDataset1",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_name": "'aa'",
+							"table_name": "'aa'"
+						}
+					}
+				}
+			},
+			{
+				"name": "check",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(1,1)",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "Wait1",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					]
+				}
+			}
+		],
+		"annotations": []
+	}
+}
