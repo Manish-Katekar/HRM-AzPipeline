@@ -54,11 +54,8 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText_ds",
-						"type": "DatasetReference",
-						"parameters": {
-							"container": "sample"
-						}
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
 					}
 				]
 			}
