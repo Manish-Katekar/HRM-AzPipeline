@@ -691,8 +691,7 @@
 								"value": "@activity('Lookup_Emr_Configuration').output.value",
 								"type": "Expression"
 							},
-							"isSequential": false,
-							"batchCount": 3,
+							"isSequential": true,
 							"activities": [
 								{
 									"name": "FileExists",
@@ -924,7 +923,7 @@
 												"type": "Copy",
 												"dependsOn": [
 													{
-														"activity": "Fail1",
+														"activity": "Fetch_Logs",
 														"dependencyConditions": [
 															"Succeeded"
 														]
@@ -1004,37 +1003,13 @@
 														}
 													}
 												]
-											},
-											{
-												"name": "Fail1",
-												"type": "Fail",
-												"dependsOn": [
-													{
-														"activity": "Fetch_Logs",
-														"dependencyConditions": [
-															"Succeeded"
-														]
-													}
-												],
-												"userProperties": [],
-												"typeProperties": {
-													"message": "xyz",
-													"errorCode": "111"
-												}
 											}
 										],
 										"ifTrueActivities": [
 											{
 												"name": "Full_Load_Cp",
 												"type": "Copy",
-												"dependsOn": [
-													{
-														"activity": "Fail2",
-														"dependencyConditions": [
-															"Succeeded"
-														]
-													}
-												],
+												"dependsOn": [],
 												"policy": {
 													"timeout": "0.12:00:00",
 													"retry": 0,
@@ -1145,16 +1120,6 @@
 															"table_name": "'aa'"
 														}
 													}
-												}
-											},
-											{
-												"name": "Fail2",
-												"type": "Fail",
-												"dependsOn": [],
-												"userProperties": [],
-												"typeProperties": {
-													"message": "fail2",
-													"errorCode": "562"
 												}
 											}
 										]
