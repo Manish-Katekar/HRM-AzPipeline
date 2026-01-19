@@ -505,7 +505,8 @@
 							],
 							"userProperties": [],
 							"typeProperties": {
-								"message": "fail"
+								"message": "fail",
+								"errorCode": "101"
 							}
 						}
 					]
