@@ -101,14 +101,7 @@
 						{
 							"name": "If Condition1",
 							"type": "IfCondition",
-							"dependsOn": [
-								{
-									"activity": "FileExists",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
+							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
@@ -200,7 +193,14 @@
 						{
 							"name": "If Condition2",
 							"type": "IfCondition",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "If Condition1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
