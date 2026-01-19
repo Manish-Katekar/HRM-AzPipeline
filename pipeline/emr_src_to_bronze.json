@@ -379,7 +379,11 @@
 												]
 											}
 										],
-										"userProperties": []
+										"userProperties": [],
+										"typeProperties": {
+											"message": "xyz",
+											"errorCode": "111"
+										}
 									}
 								],
 								"ifTrueActivities": [
