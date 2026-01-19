@@ -287,7 +287,7 @@
 										"type": "Copy",
 										"dependsOn": [
 											{
-												"activity": "Fetch_Logs",
+												"activity": "Fail1",
 												"dependencyConditions": [
 													"Succeeded"
 												]
@@ -367,6 +367,19 @@
 												}
 											}
 										]
+									},
+									{
+										"name": "Fail1",
+										"type": "Fail",
+										"dependsOn": [
+											{
+												"activity": "Fetch_Logs",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"userProperties": []
 									}
 								],
 								"ifTrueActivities": [
@@ -454,7 +467,7 @@
 										"type": "Lookup",
 										"dependsOn": [
 											{
-												"activity": "Fail1",
+												"activity": "Full_Load_Cp",
 												"dependencyConditions": [
 													"Succeeded"
 												]
@@ -484,23 +497,6 @@
 													"table_name": "'aa'"
 												}
 											}
-										}
-									},
-									{
-										"name": "Fail1",
-										"type": "Fail",
-										"dependsOn": [
-											{
-												"activity": "Full_Load_Cp",
-												"dependencyConditions": [
-													"Succeeded"
-												]
-											}
-										],
-										"userProperties": [],
-										"typeProperties": {
-											"message": "fail_msg",
-											"errorCode": "111"
 										}
 									}
 								]
