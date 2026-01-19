@@ -452,7 +452,14 @@
 									{
 										"name": "Lookup1",
 										"type": "Lookup",
-										"dependsOn": [],
+										"dependsOn": [
+											{
+												"activity": "Fail1",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
 										"policy": {
 											"timeout": "0.12:00:00",
 											"retry": 3,
@@ -477,6 +484,23 @@
 													"table_name": "'aa'"
 												}
 											}
+										}
+									},
+									{
+										"name": "Fail1",
+										"type": "Fail",
+										"dependsOn": [
+											{
+												"activity": "Full_Load_Cp",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"userProperties": [],
+										"typeProperties": {
+											"message": "fail_msg",
+											"errorCode": "111"
 										}
 									}
 								]
