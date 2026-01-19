@@ -143,8 +143,7 @@
 											"sink": {
 												"type": "ParquetSink",
 												"storeSettings": {
-													"type": "AzureBlobFSWriteSettings",
-													"maxConcurrentConnections": 5
+													"type": "AzureBlobFSWriteSettings"
 												},
 												"formatSettings": {
 													"type": "ParquetWriteSettings"
@@ -315,8 +314,7 @@
 											"sink": {
 												"type": "ParquetSink",
 												"storeSettings": {
-													"type": "AzureBlobFSWriteSettings",
-													"maxConcurrentConnections": 5
+													"type": "AzureBlobFSWriteSettings"
 												},
 												"formatSettings": {
 													"type": "ParquetWriteSettings"
@@ -397,8 +395,7 @@
 											"sink": {
 												"type": "ParquetSink",
 												"storeSettings": {
-													"type": "AzureBlobFSWriteSettings",
-													"maxConcurrentConnections": 5
+													"type": "AzureBlobFSWriteSettings"
 												},
 												"formatSettings": {
 													"type": "ParquetWriteSettings"
@@ -505,8 +502,8 @@
 							],
 							"userProperties": [],
 							"typeProperties": {
-								"message": "fail",
-								"errorCode": "101"
+								"message": "failmsg",
+								"errorCode": "111"
 							}
 						}
 					]
