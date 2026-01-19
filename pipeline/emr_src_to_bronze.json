@@ -200,14 +200,7 @@
 						{
 							"name": "If Condition2",
 							"type": "IfCondition",
-							"dependsOn": [
-								{
-									"activity": "Fail1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
+							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
@@ -487,23 +480,6 @@
 										}
 									}
 								]
-							}
-						},
-						{
-							"name": "Fail1",
-							"type": "Fail",
-							"dependsOn": [
-								{
-									"activity": "If Condition1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"userProperties": [],
-							"typeProperties": {
-								"message": "failmsg",
-								"errorCode": "111"
 							}
 						}
 					]
