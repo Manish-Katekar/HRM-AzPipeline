@@ -1027,7 +1027,14 @@
 											{
 												"name": "Full_Load_Cp",
 												"type": "Copy",
-												"dependsOn": [],
+												"dependsOn": [
+													{
+														"activity": "Fail2",
+														"dependencyConditions": [
+															"Succeeded"
+														]
+													}
+												],
 												"policy": {
 													"timeout": "0.12:00:00",
 													"retry": 0,
@@ -1138,6 +1145,16 @@
 															"table_name": "'aa'"
 														}
 													}
+												}
+											},
+											{
+												"name": "Fail2",
+												"type": "Fail",
+												"dependsOn": [],
+												"userProperties": [],
+												"typeProperties": {
+													"message": "fail2",
+													"errorCode": "562"
 												}
 											}
 										]
