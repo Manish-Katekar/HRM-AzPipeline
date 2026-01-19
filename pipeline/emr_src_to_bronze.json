@@ -101,7 +101,14 @@
 						{
 							"name": "If Condition1",
 							"type": "IfCondition",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "FileExists",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
@@ -445,14 +452,7 @@
 									{
 										"name": "Lookup1",
 										"type": "Lookup",
-										"dependsOn": [
-											{
-												"activity": "Full_Load_Cp",
-												"dependencyConditions": [
-													"Succeeded"
-												]
-											}
-										],
+										"dependsOn": [],
 										"policy": {
 											"timeout": "0.12:00:00",
 											"retry": 3,
